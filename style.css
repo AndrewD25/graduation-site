@@ -3,7 +3,14 @@ Stylesheet for my graduation board website
 */
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 
 html {
@@ -26,14 +33,35 @@ body {
     align-items: center;
 }
 
+/*Card Spawn Animation*/
+@keyframes spawn {
+    from {
+        margin-left: 50px;
+    }
+    to {
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+}
+
 .card {
     display: none; /*Hide by default*/
     width: 80%;
     height: 60vh;
     overflow-y: scroll;
+    cursor: pointer;
+
     padding: 5%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation-name: spawn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+.card::-webkit-scrollbar {
+    display: none;
 }
 
 .title {
@@ -53,6 +81,7 @@ h2 {
 
 .bodyText { 
     margin: 0;
+    margin-bottom: 10px;
 }
 
 .prev, .next {
@@ -77,7 +106,5 @@ h2 {
 .next {
     right: 0;
 }
-
-
 
 
